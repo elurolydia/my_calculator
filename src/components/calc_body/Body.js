@@ -20,7 +20,7 @@ const Body = (f) => {
             <Button dot = '.'/>
             <Button no0 = '0'/>
             <Button divide = '/'/>
-            <Button multiply = '*'/>
+            <Button multiply = '×'/>
             <Button Reset = 'RESET'  id = 'specialButton'/>
             <Button Equal = '=' id = 'specialButton2'/>
         </div>
