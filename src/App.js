@@ -8,7 +8,7 @@ const App = () => {
   
   
   return (
-    <div>
+    <div className='project_body'>
       <Head/>
       <Output/>
       <Body/>

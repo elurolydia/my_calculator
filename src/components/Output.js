@@ -7,7 +7,7 @@ const Output = () => {
         //     <input type= 'number' className='form' placeholder='0'/>   
         // </form>
         <div className='form'>
-            hi
+            34
         </div>
     )
 }

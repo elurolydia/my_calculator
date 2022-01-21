@@ -119,18 +119,24 @@ input[type=number] {
   body{
     margin: 0;
     box-sizing: border-box;
-    padding-top: 30vh;
+    /* padding-top: 10vh; */
+  }
+
+  .project_body{
+    display: grid;
+    position: relative;
+    top: 10px;
+    margin: auto;
+    width: 38%;
+    /* vertical-align: middle; */
   }
 
   .calc_body {
-    display: grid;
-    grid-template-columns: auto auto auto;
     grid-gap: 8px;
-    width: 35%;
-    margin: auto;
+    width: 100%;
+    /* margin: auto; */
     background-color: hsl(223, 31%, 20%);
     padding: 18px;
-    height: 200px;
   }
 
   .button{
@@ -145,9 +151,8 @@ input[type=number] {
   }
   
   .form{
-    margin-left: 425px;
     margin-bottom: 10px;
-    width: 35%;
-    height: 40px;
+    width: 100%;
+    height: 80px;
   }
 }
