@@ -1,13 +1,13 @@
-import React from 'react'
-import { useState } from 'react/cjs/react.development'
+import React from 'react';
 
-const Output = () => {
+
+const Output = ({myNumber}) => {
     return (
         // <form className='output'>
         //     <input type= 'number' className='form' placeholder='0'/>   
         // </form>
         <div className='form'>
-            34
+            {myNumber}
         </div>
     )
 }
