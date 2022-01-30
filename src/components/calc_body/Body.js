@@ -2,7 +2,7 @@ import Button from './Button'
 import { useState } from 'react';
 import Output from '../Output';
 
-const Body = ({showNumber, plus, equalto}) => {
+const Body = ({showNumber, plus, equalto, minus, multiply, divide, reset, del}) => {
 
 
     return (
@@ -10,7 +10,7 @@ const Body = ({showNumber, plus, equalto}) => {
             <Button no7 = '7' onClick = {() => showNumber('7')}/>
             <Button no8= '8' onClick = {() => showNumber('8')}/>
             <Button no9 = '9' onClick = {() => showNumber('9')}/>
-            <Button Del = 'DEL' id= 'delete' />
+            <Button Del = 'DEL' id= 'delete' onClick={del}/>
             <Button no4 = '4' onClick = {() => showNumber('4')}/>
             <Button no5 = '5' onClick = {() => showNumber('5')}/>
             <Button no6 = '6' onClick = {() => showNumber('6')}/>
@@ -18,12 +18,12 @@ const Body = ({showNumber, plus, equalto}) => {
             <Button no1 = '1' onClick = {() => showNumber('1')}/>
             <Button no2 = '2' onClick = {() => showNumber('2')}/>
             <Button no3 = '3' onClick = {() => showNumber('3')}/>
-            <Button minus = '-'/>
+            <Button minus = '-' onClick={minus}/>
             <Button dot = '.'/>
             <Button no0 = '0' onClick = {() => showNumber('0')}/>
-            <Button divide = '/'/>
-            <Button multiply = '×'/>
-            <Button Reset = 'RESET'  id = 'specialButton'/>
+            <Button divide = '/' onClick={divide}/>
+            <Button multiply = '×' onClick={multiply}/>
+            <Button Reset = 'RESET'  id = 'specialButton' onClick={reset}/>
             <Button Equal = '=' id = 'specialButton2' onClick={equalto}/>
         </div>
         
