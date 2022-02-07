@@ -4,29 +4,39 @@ import Output from './components/Output';
 import { useState, useEffect } from 'react';
 
 
-
 const App = () => {
+
+  // document.body.style.backgroundColor = 'green';
+
+  const [switchToggle, setSwitchToggle] = useState(true);
+
+  const ToggleClick = () => {
+  
+    switchToggle ? setSwitchToggle(false) : setSwitchToggle(true);
+
+    console.log(switchToggle);
+  }
+
+  switchToggle ? document.body.style.backgroundColor = 'hsl(222, 26%, 31%)' : document.body.style.backgroundColor = 'hsl(0, 0%, 90%)';
 
   let displayedNumber = '0';
   const [number, setNumber] = useState(displayedNumber);
   const [initialValue, setInitialValue] = useState(() => {});
   const [myArray, setMyArray] = useState([])
-  const [result, setResult] = useState('')
   let T;
   // const []
   useEffect (() => {
     // console.log(eval("5 +" + "12") )
     console.log(myArray);
-    console.log('Number is now: ' + number)
-        // let P = myArray.join('');
-        // setResult( () =>  Function ('return ' + P)() );
-        // console.log(result);
-
+    // console.log('Number is now: ' + number);
   })
 
   const showNumber = (n) => {
 
-    if(number === '0'){
+    if(number === '0' && n === '.'){
+      displayedNumber = number + n;
+      setNumber(displayedNumber)
+    }else if(number === '0'){
       displayedNumber = n;
       setNumber(displayedNumber);
     }else{
@@ -80,6 +90,7 @@ const App = () => {
     }
   }
 
+  
   const divide = () => {
 
     if (myArray.length >= 1) {
@@ -102,42 +113,55 @@ const App = () => {
     let T = Function('return ' + P)();
     // console.log (eval(P));
     console.log(T);
-    setNumber(T);
+    setNumber(T.toString());
     setMyArray([])
     
   }
 
 
   const reset = () => {
-    setNumber('0')
+    setNumber('0');
+    setMyArray([]);
   };
 
 
   const del = () => {
-    // let del = number.pop();
-    // console.log(number.length)
-    let del = number.substring(0, number.length - 1 );
-    setNumber(del)
-    console.log(del)
+    
+    if(number === '') {
+      setNumber('0')
+    }else{
+      let del = number.substring(0, number.length - 1 );
+      setNumber(del)
+    }
   }
-
-
-
-
 
   
   return (
     <div className='project_body'>
-      <Head/>
-      <Output myNumber= {number}/>
-      <Body showNumber = {showNumber} 
+      <Head 
+            ToggleClick = {ToggleClick} 
+            className = {switchToggle? 'inner': 'inner2' } 
+            titleClassname = {switchToggle? 'title' : 'title2'}
+            themeClassname={switchToggle? 'myTheme' : 'myTheme2'}
+            switchClassname={switchToggle? 'switch': 'switch2'}
+            />
+      <Output myNumber= {number} className = {switchToggle? 'form': 'form2' }/>
+      <Body 
+            showNumber = {showNumber} 
             plus = {plus} 
             minus = {minus} 
             equalto = {equalto} 
             multiply = {multiply} 
             divide = {divide} 
             reset = {reset}
-            del = {del}/>
+            del = {del}
+            className = {switchToggle? 'calc_body': 'calc_body2'}
+            deleteButtonClassname ={switchToggle? 'deleteButton' : 'deleteButton2'}
+            resetButtonClassname ={switchToggle? 'resetButton' : 'resetButton2'}
+            equalButtonClassname ={switchToggle? 'equalButton' : 'equalButton2'}
+            gridItemClassname = {switchToggle? 'grid-item' : 'grid-item2'}
+
+      />
     </div>
   );
 }
